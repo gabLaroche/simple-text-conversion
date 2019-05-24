@@ -1,21 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin:400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Muli:400,600');
+:root {
+    --primary-font-family: 'Muli', sans-serif;
+    --secondary-font-family: 'Cabin', sans-serif;
+}
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 50px;
+    font-family: var(--primary-font-family);
+}
+
+main {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
 button {
     padding: 0;
     background: none;
     border: none;
     cursor: pointer;
+    font-size: 1.6rem;
+}
+
+textarea {
+    width: 100%;
+    max-width: 100%;
+    height: 250px;
+    border-radius: 5px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.button__list {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.button__list-item {
+    margin: 0 1rem;
+    font-family: var(--secondary-font-family);
 }
 
 .info-tooltip {
     position: relative;
-    margin-left: 1rem;
+    margin-left: 5px;
     outline: none;
+    line-height: 0;
 }
 
 .info-tooltip:before {
     content: "";
     display: block;
-    width: 1rem;
-    height: 1rem;
+    width: 1.6rem;
+    height: 1.6rem;
     border: 1px solid black;
     border-radius: 50%;
     position: absolute;
@@ -31,13 +78,15 @@ button {
 
 .info-popup {
     display: none;
+    width: 250px;
+    z-index: 10;
     background: #fff;
     border: 1px solid #e1e1e1;
     margin-left: 10px;
-    padding: 5px;
+    padding: 15px;
     position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    width:250px;
+    line-height: 1;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
 }
