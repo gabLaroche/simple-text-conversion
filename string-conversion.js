@@ -46,24 +46,14 @@ const clearTextarea = () => {
     textarea.value = "";
 };
 
-const popupInfo = () => {
-    console.log('popupInfo');
-    // https://stackoverflow.com/questions/18359193/plain-javascript-tooltip
-};
-
-const addEvents = () => {
+const init = () => {
     upperCaseBtn.addEventListener('click', toUpperCase);
     lowerCaseBtn.addEventListener('click', toLowerCase);
     sentenceCaseBtn.addEventListener('click', toSentenceCase);
     capitalizedCaseBtn.addEventListener('click', toCapitalizedCase);
 
-    // infoBubble.addEventListener('click', popupInfo);
     clearTextBtn.addEventListener('click', clearTextarea);
     copyTextBtn.addEventListener('click', copyToClipboard);
-};
-
-const init = () => {
-    addEvents();
 };
 
 (function () {
