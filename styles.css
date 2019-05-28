@@ -3,6 +3,8 @@
 :root {
     --primary-font-family: 'Muli', sans-serif;
     --secondary-font-family: 'Cabin', sans-serif;
+    --color-primary: #462880;
+    --color-secondary: #dddddd;
 }
 html {
     font-size: 62.5%;
@@ -25,7 +27,7 @@ button {
     border: none;
     cursor: pointer;
     font-size: 1.6rem;
-    transition: all 250ms ease-in-out;
+    transition: all 350ms ease-in-out;
     position: relative;
 }
 
@@ -35,12 +37,13 @@ textarea {
     height: 250px;
     border-radius: 5px;
     font-size: 1.4rem;
+    border-color: var(--color-primary);
 }
 
 .container {
     display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
+    margin: 1rem auto;
+    flex-direction: column;
 }
 
 .button__list {
@@ -48,6 +51,7 @@ textarea {
     display: flex;
     padding: 0;
     margin: 1rem 0;
+    justify-content: center;
 }
 
 .button__list-item {
@@ -56,45 +60,46 @@ textarea {
 }
 
 .converter-btn {
-    --btn-colour-primary: #57929a;
-    --btn-colour-secondary: #fff;
-    --btn-colour-active: #16262d;
-}
-
-.utility-btn {
-    --btn-colour-primary: #462880;
-    --btn-colour-secondary: #fff;
-    --btn-colour-active: #16162d;
-}
-
-.btn-style-1 {
-    background-color: var(--btn-colour-primary);
-    color: var(--btn-colour-secondary);
     border-radius: 5px;
 }
 
-.btn-style-1:hover {
-    border-radius: 20px;
-    background-color: var(--btn-colour-active);
+.utility-btn {
+    border-radius: 50px;
+}
+
+.btn-style-1 {
+    color: var(--color-primary);
+    border: 2px solid;
+    outline: none;
+
+}
+
+.converter-btn:hover {
+    border-radius: 50px;
+}
+
+.utility-btn:hover {
+    border-radius: 5px;
 }
 
 .btn-style-1:active {
-    transform: scale(0.95);
+    transform: scale(0.98);
 }
 
 .info-tooltip {
     position: relative;
-    margin-left: 5px;
+    margin-left: 10px;
     outline: none;
     line-height: 0;
+    color: var(--color-primary)
 }
 
 .info-tooltip:before {
     content: "";
     display: block;
-    width: 2rem;
-    height: 2rem;
-    border: 1px solid black;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 2px solid;
     border-radius: 50%;
     position: absolute;
     top: 50%;
@@ -103,21 +108,38 @@ textarea {
 }
 
 .info-tooltip:hover .info-popup {
-    display: block;
+    opacity: 1;
 }
 
 
 .info-popup {
-    display: none;
+    opacity: 0;
     width: 250px;
     z-index: 10;
     background: #fff;
-    border: 1px solid #e1e1e1;
-    margin-left: 10px;
+    border: 2px solid #e1e1e1;
     padding: 15px;
     position: absolute;
+    pointer-events: none;
     line-height: 1;
-    top: 20px;
+    text-align: center;
+    top: 32px;
     left: 50%;
     transform: translateX(-50%);
+    transition: opacity 250ms ease-in-out;
+}
+
+.info-popup:before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: -12px;
+    background: #fff;
+    left: 50%;
+    border-radius: 2px;
+    border-top: 2px solid #e1e1e1;
+    border-right: 2px solid #e1e1e1;
+    transform: rotate(-45deg) translateX(-50%);
 }
