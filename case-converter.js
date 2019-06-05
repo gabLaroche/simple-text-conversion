@@ -27,11 +27,13 @@ const capitalizeChars = splitter => {
 };
 
 const toSentenceCase = () => {
+    toLowerCase();
     textarea.value = capitalizeChars('. ');
     textarea.value = capitalizeChars('.');
 };
 
 const toCapitalizedCase = () => {
+    toLowerCase();
     textarea.value = capitalizeChars(' ');
 };
 
