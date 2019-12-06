@@ -1,17 +1,12 @@
 @import "../common.css";
 :root {
-    --color-primary: #462880;
+    --color-primary: #202020;
     --color-secondary: #dddddd;
+    --color-light-grey: #efefef;
 }
 
-button {
-    padding: 1rem 1.6rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.6rem;
-    transition: all 350ms ease-in-out;
-    position: relative;
+body {
+    max-width: 90vw;
 }
 
 textarea {
@@ -20,8 +15,8 @@ textarea {
     height: 350px;
     max-height: 350px;
     border-radius: 5px;
-    font-size: 1.4rem;
-    border-color: var(--color-primary);
+    background: #fafafa;
+    border: 1px solid var(--color-primary);
 }
 
 .container {
@@ -44,58 +39,40 @@ textarea {
     font-family: var(--secondary-font-family);
 }
 
-.converter-btn {
-    border-radius: 5px;
-}
-
 .utility-btn {
-    border-radius: 50px;
-}
-
-.btn-style-1 {
-    color: var(--color-primary);
-    border: 2px solid;
-    outline: none;
-
-}
-
-.converter-btn:hover {
-    border-radius: 50px;
+    background: #0F4C81;
+    color: white;
 }
 
 .utility-btn:hover {
-    border-radius: 5px;
-}
-
-.btn-style-1:active {
-    transform: scale(0.98);
+    background: rgb(22, 106, 179);
 }
 
 .info-tooltip {
     position: relative;
-    margin-left: 10px;
     outline: none;
-    line-height: 0;
-    color: var(--color-primary)
-}
-
-.info-tooltip:before {
-    content: "";
-    display: block;
+    line-height: 2.4;
+    color: var(--color-primary);
+    display: inline-block;
     width: 2.5rem;
     height: 2.5rem;
-    border: 2px solid;
+    text-align: center;
+    background: var(--color-light-grey);
     border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+}
+
+.info-tooltip:after {
+    content: '?';
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    color: black;
 }
 
 .info-tooltip:hover .info-popup {
     opacity: 1;
 }
-
 
 .info-popup {
     opacity: 0;
@@ -127,4 +104,8 @@ textarea {
     border-top: 2px solid #e1e1e1;
     border-right: 2px solid #e1e1e1;
     transform: rotate(-45deg) translateX(-50%);
+}
+
+footer {
+    text-align: center;
 }
