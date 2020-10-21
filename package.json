@@ -1,0 +1,15 @@
+{
+  "name": "simple-text-conversion",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:gabLaroche/simple-text-conversion.git",
+  "author": "Gabriel Laroche <gabriel.laroche@nurun.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}

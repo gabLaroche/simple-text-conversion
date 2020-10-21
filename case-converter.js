@@ -5,10 +5,10 @@ const sentenceCaseBtn = document.getElementById('sentenceCaseBtn');
 const capitalizedCaseBtn = document.getElementById('capitalizedCaseBtn');
 
 const copyTextBtn = document.getElementById('copyBtn');
-const clearTextBtn = document.getElementById('clearBtn');
 
 const numCharsElem = document.getElementById('numChars');
 const numWordsElem = document.getElementById('numWords');
+const numSentencesElem = document.getElementById('numSentences');
 
 const toUpperCase = () => {
     textarea.value = textarea.value.toUpperCase();
@@ -40,23 +40,6 @@ const toCapitalizedCase = () => {
     textarea.value = capitalizeChars(' ');
 };
 
-const toTitleCase = () => {
-    /***
-     * WHAT TO CAPITALIZE :
-     ** First word
-     ** Last Word
-     ** Words >= 5 chars
-     ** Pronouns (I, Me, We, Us, You, She, Her, He, Him, It, They, Them,)
-     * */
-
-    const importantShortWords = [
-        "i", "me", "we", "us", "you", "she", "her", "he", "him", "it", "they", "them",
-        "this", "that", "who", "whom", "all", "any", "both", "few", "many", "most", "none",
-        "many", "none", "some", "what", "my", "your", "his", "her", "its", "our", "ours", "mine",
-        "hers", "as", "even", "if", "than", "that", "when", "why"
-    ]
-};
-
 const countChars = () => {
     numCharsElem.innerText = textarea.value.length.toString();
 };
@@ -67,15 +50,17 @@ const countWords = () => {
     numWordsElem.innerText = textarea.value === "" ? "0" : textContent.length.toString();
 };
 
+const countSentences = () => {
+    const textContent = textarea.value.split(". ");
+
+  numSentencesElem.innerText = textarea.value === "" ? "0" : textContent.length.toString();
+};
+
 const copyToClipboard = () => {
     if (textarea.value !== "") {
         textarea.select();
         document.execCommand("copy");
     }
-};
-
-const clearTextarea = () => {
-    textarea.value = "";
 };
 
 const init = () => {
@@ -84,10 +69,10 @@ const init = () => {
     sentenceCaseBtn.addEventListener('click', toSentenceCase);
     capitalizedCaseBtn.addEventListener('click', toCapitalizedCase);
 
-    clearTextBtn.addEventListener('click', clearTextarea);
     copyTextBtn.addEventListener('click', copyToClipboard);
     textarea.addEventListener('input', countChars);
     textarea.addEventListener('input', countWords);
+    textarea.addEventListener('input', countSentences);
 };
 
 (function () {
